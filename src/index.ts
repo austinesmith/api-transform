@@ -81,23 +81,38 @@ const sendResults = async (transformResults : SendDataWrapper) => {
       data: transformResults
     });
     // result.ok will return true boolean 200-209
-    //console.log(result.ok);
-    //console.log(result.status);
+    console.log(result.ok);
+    console.log(result.status);
     return result;
   } catch (err) {
     console.error(err);
   }
 }
 
+// const sendData = async (transformResult : SendDataWrapper) =>
+// {
+//   const result = await axios.post(`${DESTINATION_URL}/users`, transformResult)
+//   .then(result => {
+//     console.log(`statusCode: ${res.status}`)
+//     console.log(res)
+//   })
+//   .catch(error => {
+//     console.error(error)
+//   })
+// }
+
+async function sendData(transformResult : SendDataWrapper) : Promise<SendDataWrapper> {
+  const response = await axios.post(`${SOURCE_URL}/users`, transformResult);
+  return response.data;
+}
+
 async function main() {
   const response : FetchUser[] = await fetchUsers();
-  //console.log(response);
-  const results : SendDataWrapper = transformData(response);
-  // uploadResults(results);
-  sendResults(results).then((data) => console.log(data.ok));
-  //console.log( results );
-  //console.log( results['data'] );
+  const result : SendDataWrapper = transformData(response);
+  const verdict : SendDataWrapper = await sendData(result);
+  console.log(verdict);
   //console.log(results);
+  //sendResults(results).then((data) => console.log(data.ok));
 }
 
 main();
