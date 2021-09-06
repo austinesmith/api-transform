@@ -1,33 +1,33 @@
-interface FetchUser {
+interface FetchUserModel {
   id: number;
   name: string;
   username: string;
   email: string;
-  address: FetchUserAddress;
+  address: FetchUserModelAddress;
   phone: string;
   website: string;
-  company: FetchUserCompany;
+  company: FetchUserModelCompany;
 }
 
-interface FetchUserAddress {
+interface FetchUserModelAddress {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
-  geo: FetchUserAddressGeo;
+  geo: FetchUserModelAddressGeo;
 }
 
-interface FetchUserAddressGeo {
+interface FetchUserModelAddressGeo {
   lat: number;
   lng: number;
 }
 
-interface FetchUserCompany {
+interface FetchUserModelCompany {
   name: string;
   catchPhrase: string;
   bs: string;
 }
 
 export {
-  FetchUser
+  FetchUserModel
 }

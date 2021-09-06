@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "api-transform",
   "version": "1.0.0",
   "description": "fetches data from an API, transforms it, then posts it to a different API",
   "main": "src/index.ts",
