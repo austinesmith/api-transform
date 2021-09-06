@@ -4,7 +4,7 @@
   "description": "fetches data from an API, transforms it, then pushes it to a different API",
   "main": "src/index.ts",
   "scripts": {
-    "start": "npx ts-node ./src/api.ts"
+    "start": "npx ts-node ./src/index.ts"
   },
   "author": "Austin Smith",
   "license": "ISC",
