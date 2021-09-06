@@ -1,20 +1,21 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "fetches data from an API, transforms it to be compatible with another API, then pushes it",
+  "description": "fetches data from an API, transforms it, then pushes it to a different API",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node ./src/api.ts"
   },
   "author": "Austin Smith",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^16.7.10",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.2",
+    "ts-node": "^10.2.1",
+    "@types/axios": "^0.14.0"
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "axios": "^0.21.1",
-    "ts-node": "^10.2.1"
+    "zip-state": "^1.0.1"
   }
 }
