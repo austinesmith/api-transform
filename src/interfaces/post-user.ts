@@ -1,11 +1,11 @@
-interface SendDataWrapper {
+interface PostUsersModel {
     userid: string;
     password: string;
     outputtype: string;
-    users: SendDataUser[];
+    users: PostUsersModelUser[];
 }
 
-interface SendDataUser {
+interface PostUsersModelUser {
     first_name: string;
     last_name: string;
     company_name: string;
@@ -15,6 +15,6 @@ interface SendDataUser {
 }
 
 export {
-    SendDataWrapper,
-    SendDataUser
+    PostUsersModel,
+    PostUsersModelUser
 }

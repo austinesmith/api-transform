@@ -1,18 +1,18 @@
 // this module provides helper methods for string manipulations specific to
 // the data transform
 import { FetchUserModel } from './interfaces/fetch-user';
-import { PostUserModel, PostUserModelUser } from './interfaces/post-user';
+import { PostUsersModel, PostUsersModelUser } from './interfaces/post-user';
 import zipState from 'zip-state'; // this package enables state lookup from zipcode
 
 /* transforms fetch JSON object into compatible post JSON object */
-export function transformUsers(fetchData : FetchUserModel[], userName : string, password : string, outputType : string ) : PostUserModel {
+export function transformUsers(fetchData : FetchUserModel[], userName : string, password : string, outputType : string ) : PostUsersModel {
     // declare array of users to add to wrapper
-  let updatedUsers: Array<PostUserModelUser> = [];
+  let updatedUsers: Array<PostUsersModelUser> = [];
 
     // add each fetch data user to array
   for (let i=0; i<fetchData.length; i++) {
       // create new user object with refined data
-    let currentUser : PostUserModelUser = {
+    let currentUser : PostUsersModelUser = {
       first_name: extractFirstName(fetchData[i]['name']),
       last_name: extractLastName(fetchData[i]['name']),
       company_name: fetchData[i]['company']['name'],
@@ -25,7 +25,7 @@ export function transformUsers(fetchData : FetchUserModel[], userName : string, 
   }
 
     // create user wrapper with array
-  const sendData : PostUserModel = {
+  const sendData : PostUsersModel = {
     userid: userName,
     password: password,
     outputtype: outputType,
